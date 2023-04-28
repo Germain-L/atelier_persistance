@@ -1,4 +1,4 @@
-package fr.epsi.atelier_persistance.controllers;
+package fr.epsi.atelier_persistance.controllers.site;
 
 import fr.epsi.atelier_persistance.entities.Adherent;
 import fr.epsi.atelier_persistance.repositories.AdherentRepository;
