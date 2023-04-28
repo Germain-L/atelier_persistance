@@ -1,0 +1,24 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: persistance
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - "./init.sql:/docker-entrypoint-initdb.d/init.sql"
+
+  adminer:
+    image: adminer
+    container_name: adminer-container
+    depends_on:
+      - mysql
+    ports:
+      - "8081:8080"
+    restart: always
+
+
+volumes:
+  mysql-data:
