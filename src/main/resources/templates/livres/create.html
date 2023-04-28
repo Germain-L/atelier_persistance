@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Livre</title>
+</head>
+<body>
+<h1>Create Livre</h1>
+<form action="/api/livres" method="post">
+    <label for="titre">Titre:</label>
+    <input type="text" id="titre" name="titre" required><br><br>
+    <label for="auteur">Auteur:</label>
+    <select id="auteur" name="auteur.id" required>
+        <option value="">--Select an author--</option>
+        <th:block th:each="auteur : ${auteurs}">
+            <option th:value="${auteur.id}" th:text="${auteur.nom + ' ' + auteur.prenom}"></option>
+        </th:block>
+    </select><br><br>
+    <label for="categorie">Categorie:</label>
+    <select id="categorie" name="categorie.id" required>
+        <option value="">--Select a category--</option>
+        <th:block th:each="categorie : ${categories}">
+            <option th:value="${categorie.id}" th:text="${categorie.nom}"></option>
+        </th:block>
+    </select><br><br>
+    <button type="submit">Create</button>
+</form>
+<br>
+<a href="/livres">Back to Livres list</a>
+</body>
+</html>

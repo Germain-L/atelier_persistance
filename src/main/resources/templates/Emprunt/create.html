@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Emprunt</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Create Emprunt</h1>
+<form method="post" th:action="@{/emprunts}">
+    <div>
+        <label for="adherent">Adherent:</label>
+        <select name="adherent" id="adherent">
+            <option value="">-- Select Adherent --</option>
+            <th:block th:each="adherent : ${adherents}">
+                <option th:value="${adherent.id}" th:text="${adherent.nom + ' ' + adherent.prenom}"></option>
+            </th:block>
+        </select>
+    </div>
+    <div>
+        <label for="livre">Livre:</label>
+        <select name="livre" id="livre">
+            <option value="">-- Select Livre --</option>
+            <th:block th:each="livre : ${livres}">
+                <option th:value="${livre.id}" th:text="${livre.titre + ' - ' + livre.auteur.nom + ' ' + livre.auteur.prenom}"></option>
+            </th:block>
+        </select>
+    </div>
+    <div>
+        <label for="dateEmprunt">Date d'emprunt:</label>
+        <input type="date" id="dateEmprunt" name="dateEmprunt" required>
+    </div>
+    <div>
+        <label for="dateFinPrevue">Date de fin prévue:</label>
+        <input type="date" id="dateFinPrevue" name="dateFinPrevue" required>
+    </div>
+    <button type="submit">Create</button>
+</form>
+<a href="/emprunts">Back to Emprunts</a>
+</body>
+</html>

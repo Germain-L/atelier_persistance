@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails d'un Emprunt</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Détails de l'emprunt</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Emprunt n°<span th:text="${emprunt.id}"></span></h5>
+            <p class="card-text">
+                <strong>Adhérent:</strong> <span th:text="${emprunt.adherent.nom}"></span> <span th:text="${emprunt.adherent.prenom}"></span><br>
+                <strong>Livre:</strong> <span th:text="${emprunt.livre.titre}"></span><br>
+                <strong>Date d'emprunt:</strong> <span th:text="${#dates.format(emprunt.dateEmprunt, 'dd/MM/yyyy')}"></span><br>
+                <strong>Date de retour prévue:</strong> <span th:text="${#dates.format(emprunt.dateFinPrevue, 'dd/MM/yyyy')}"></span><br>
+                <strong>Date de retour:</strong> <span th:if="${emprunt.dateRetour}" th:text="${#dates.format(emprunt.dateRetour, 'dd/MM/yyyy')}"></span><span th:unless="${emprunt.dateRetour}">(non retourné)</span><br>
+            </p>
+        </div>
+    </div>
+    <a th:href="@{/emprunts}" class="btn btn-secondary mt-3">Retourner à la liste des emprunts</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Livre Details</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Livre Details</h1>
+    <hr>
+    <div>
+        <p><strong>Titre:</strong> [[${livre.titre}]]</p>
+        <p><strong>Auteur:</strong> [[${livre.auteur.nom}]] [[${livre.auteur.prenom}]]</p>
+        <p><strong>Categorie:</strong> [[${livre.categorie.nom}]]</p>
+        <p><strong>Emprunts:</strong> [[${livre.emprunts.size()}]]</p>
+    </div>
+    <div>
+        <a class="btn btn-primary" href="/livres">Back to List</a>
+        <a class="btn btn-success" href="/livres/edit/[[${livre.id}]]">Edit</a>
+        <form method="post" action="/livres/[[${livre.id}]]"
+              onsubmit="return confirm('Are you sure you want to delete this Livre?')">
+            <input type="hidden" name="_method" value="DELETE"/>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

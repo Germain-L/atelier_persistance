@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Créer un Auteur</title>
+</head>
+<body>
+<h1>Créer un Auteur</h1>
+
+<form method="post" th:action="@{/auteurs}">
+    <div>
+        <label>Nom:</label>
+        <input type="text" name="nom"/>
+    </div>
+    <div>
+        <label>Prénom:</label>
+        <input type="text" name="prenom"/>
+    </div>
+    <button type="submit">Enregistrer</button>
+</form>
+
+<a href="/auteurs">Retour à la liste des auteurs</a>
+
+</body>
+</html>

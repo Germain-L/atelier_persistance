@@ -1,0 +1,525 @@
+openapi: "3.0.3"
+info:
+  title: "atelier_persistance API"
+  description: "atelier_persistance API"
+  version: "1.0.0"
+servers:
+  - url: "https://atelier_persistance"
+paths:
+  /api/adherents:
+    get:
+      summary: "GET api/adherents"
+      operationId: "getAllAdherents"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Adherent"
+    post:
+      summary: "POST api/adherents"
+      operationId: "createAdherent"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Adherent"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Adherent"
+  /api/adherents/{id}:
+    get:
+      summary: "GET api/adherents/{id}"
+      operationId: "getAdherentById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Adherent"
+    put:
+      summary: "PUT api/adherents/{id}"
+      operationId: "updateAdherent"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Adherent"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Adherent"
+    delete:
+      summary: "DELETE api/adherents/{id}"
+      operationId: "deleteAdherent"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+  /api/auteurs:
+    get:
+      summary: "GET api/auteurs"
+      operationId: "getAllAuteurs"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Auteur"
+    post:
+      summary: "POST api/auteurs"
+      operationId: "createAuteur"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Auteur"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Auteur"
+  /api/auteurs/{id}:
+    get:
+      summary: "GET api/auteurs/{id}"
+      operationId: "getAuteurById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Auteur"
+    put:
+      summary: "PUT api/auteurs/{id}"
+      operationId: "updateAuteur"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Auteur"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Auteur"
+    delete:
+      summary: "DELETE api/auteurs/{id}"
+      operationId: "deleteAuteur"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+  /api/categories:
+    get:
+      summary: "GET api/categories"
+      operationId: "getAllCategories"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Categorie"
+    post:
+      summary: "POST api/categories"
+      operationId: "createCategorie"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Categorie"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Categorie"
+  /api/categories/{id}:
+    get:
+      summary: "GET api/categories/{id}"
+      operationId: "getCategorieById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Categorie"
+    put:
+      summary: "PUT api/categories/{id}"
+      operationId: "updateCategorie"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Categorie"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Categorie"
+    delete:
+      summary: "DELETE api/categories/{id}"
+      operationId: "deleteCategorie"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+  /api/livres:
+    get:
+      summary: "GET api/livres"
+      operationId: "getAllLivres"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Livre"
+    post:
+      summary: "POST api/livres"
+      operationId: "createLivre"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Livre"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Livre"
+  /api/livres/{id}:
+    get:
+      summary: "GET api/livres/{id}"
+      operationId: "getLivreById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Livre"
+    put:
+      summary: "PUT api/livres/{id}"
+      operationId: "updateLivre"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Livre"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Livre"
+    delete:
+      summary: "DELETE api/livres/{id}"
+      operationId: "deleteLivre"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+  /api/emprunts:
+    get:
+      summary: "GET api/emprunts"
+      operationId: "getAllEmprunts"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/Emprunt"
+    post:
+      summary: "POST api/emprunts"
+      operationId: "createEmprunt"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Emprunt"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Emprunt"
+  /api/emprunts/{id}:
+    get:
+      summary: "GET api/emprunts/{id}"
+      operationId: "getEmpruntById"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Emprunt"
+    put:
+      summary: "PUT api/emprunts/{id}"
+      operationId: "updateEmprunt"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Emprunt"
+        required: true
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Emprunt"
+    delete:
+      summary: "DELETE api/emprunts/{id}"
+      operationId: "deleteEmprunt"
+      parameters:
+        - name: "id"
+          in: "path"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                type: "object"
+components:
+  schemas:
+    Auteur:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        nom:
+          type: "string"
+        prenom:
+          type: "string"
+        livres:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Livre"
+    Categorie:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        nom:
+          type: "string"
+        livres:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Livre"
+    Livre:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        titre:
+          type: "string"
+        auteur:
+          $ref: "#/components/schemas/Auteur"
+        categorie:
+          $ref: "#/components/schemas/Categorie"
+        emprunts:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Emprunt"
+    Emprunt:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        dateEmprunt:
+          type: "string"
+          format: "date-time"
+        dateFinPrevue:
+          type: "string"
+          format: "date-time"
+        dateRetour:
+          type: "string"
+          format: "date-time"
+        adherent:
+          $ref: "#/components/schemas/Adherent"
+        livre:
+          $ref: "#/components/schemas/Livre"
+    Adherent:
+      type: "object"
+      properties:
+        id:
+          type: "integer"
+          format: "int64"
+        nom:
+          type: "string"
+        prenom:
+          type: "string"
+        email:
+          type: "string"
+        dateInscription:
+          type: "string"
+          format: "date-time"
+        emprunts:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Emprunt"
