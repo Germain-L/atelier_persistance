@@ -20,6 +20,6 @@ public class Auteur {
     @Column(nullable = false)
     private String prenom;
 
-    @OneToMany(mappedBy = "auteur", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "auteur")
     private List<Livre> livres;
 }

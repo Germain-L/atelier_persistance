@@ -28,6 +28,6 @@ public class Adherent {
     @Column(nullable = false)
     private Date dateInscription;
 
-    @OneToMany(mappedBy = "adherent", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "adherent", orphanRemoval = false)
     private List<Emprunt> emprunts;
 }
