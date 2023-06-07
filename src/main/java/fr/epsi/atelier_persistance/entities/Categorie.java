@@ -18,6 +18,6 @@ public class Categorie {
     @Column(nullable = false)
     private String nom;
 
-    @OneToMany(mappedBy = "categorie", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "categorie")
     private List<Livre> livres;
 }
