@@ -14,7 +14,7 @@
     <name>atelier_persistance</name>
     <description>atelier_persistance</description>
     <properties>
-        <java.version>20</java.version>
+        <java.version>19</java.version>
     </properties>
     <dependencies>
         <dependency>
