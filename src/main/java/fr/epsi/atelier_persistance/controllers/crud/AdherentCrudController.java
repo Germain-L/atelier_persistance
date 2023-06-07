@@ -29,7 +29,7 @@ public class AdherentCrudController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public Adherent createAdherent(@RequestBody Adherent adherent) {
         return adherentRepository.save(adherent);
     }

@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontlight - Création d'un nouvel adhérent</title>
 </head>
 <body>
+<h1>Frontlight - Création d'un nouvel adhérent</h1>
 
+<form id="create-adherent-form">
+    <div>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" required>
+    </div>
+    <div>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required>
+    </div>
+    <div>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="dateInscription">Date d'inscription :</label>
+        <input type="date" id="dateInscription" name="dateInscription" required>
+    </div>
+    <div>
+        <button type="submit">Créer</button>
+    </div>
+</form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#create-adherent-form').submit(function(event) {
+            event.preventDefault();
+
+            var nom = $('#nom').val();
+            var prenom = $('#prenom').val();
+            var email = $('#email').val();
+            var dateInscription = $('#dateInscription').val();
+
+            var adherent = {
+                nom: nom,
+                prenom: prenom,
+                email: email,
+                dateInscription: dateInscription
+            };
+
+            $.ajax({
+                url: '/api/adherents/add',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(adherent),
+                success: function(response) {
+                    alert('Adhérent créé avec succès !');
+                    // Réinitialisez les champs du formulaire
+                    $('#nom').val('');
+                    $('#prenom').val('');
+                    $('#email').val('');
+                    $('#dateInscription').val('');
+                },
+                error: function(error) {
+                    alert('Erreur lors de la création de l\'adhérent.');
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
